@@ -9,7 +9,42 @@ Meteor.startup(() =>
 {
     const customUserFileds = SysVars.findOne({name: 'user_custom_fields'});
     const defaultPrivileges = SysVars.findOne({name: 'default_privileges'});
+    const usersActions = Actions.findOne({_id: '0'});
 
+    if (!usersActions)
+    {
+        const defaultActions = {
+            "_id": "0",
+            "moduleName": "users",
+            "login": {
+                "active": true,
+                "default": true,
+                "guestUser": true
+            },
+            "insertUsers": {
+                "active": true,
+                "default": true,
+                "guestUser": true
+            },
+            "updateUsers": {
+                "active": true,
+                "default": true,
+                "guestUser": true
+            },
+            "deleteUsers": {
+                "active": true,
+                "default": true,
+                "guestUser": false
+            },
+            "updateAccount": {
+                "active": true,
+                "default": true,
+                "guestUser": "n/a"
+            }
+        };
+        Actions.insert(defaultActions);
+    }
+    
     if (!customUserFileds) {
       const userCustomFields =
       {
