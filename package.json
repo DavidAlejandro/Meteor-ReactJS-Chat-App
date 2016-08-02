@@ -1,0 +1,16 @@
+{
+  "name": "simple-todos",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "ftp-client": "^0.2.2",
+    "jsftp": "^1.5.3",
+    "meteor-node-stubs": "~0.2.0",
+    "react": "^15.0.1",
+    "react-addons-pure-render-mixin": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-mounter": "^1.2.0"
+  }
+}
