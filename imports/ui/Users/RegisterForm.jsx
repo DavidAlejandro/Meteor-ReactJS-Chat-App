@@ -23,7 +23,7 @@ export default class RegisterForm extends Component
         const email = ReactDOM.findDOMNode(this.refs.userEmail).value;
         const password = ReactDOM.findDOMNode(this.refs.userPassword).value;
         const name = ReactDOM.findDOMNode(this.refs.userName).value;
-        const profile = {name, country, city};
+        const profile = {name};
         const user = new User();
         const callback = (err, res) =>
         {
@@ -33,6 +33,7 @@ export default class RegisterForm extends Component
           else
           {
             alert(res);
+            FlowRouter.go('/login');
           }
         }
         const newUser = { email, password, profile};
